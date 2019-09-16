@@ -1,9 +1,11 @@
-﻿using Penguin.Messaging.Abstractions.Interfaces;
+﻿using Penguin.Debugging;
+using Penguin.Messaging.Abstractions.Interfaces;
 using Penguin.Messaging.Abstractions.Messages;
 using Penguin.Messaging.Core.Subscriptions;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 
@@ -41,15 +43,7 @@ namespace Penguin.Messaging.Core
         /// <param name="messageHandler">The type to check for methods</param>
         public static void Subscribe(Type messageHandler)
         {
-            if (messageHandler is null)
-            {
-                throw new Exception("messageHandler is null");
-            }
-
-            if (SubscribedTypes is null)
-            {
-                throw new Exception("Subscribed Types is null");
-            }
+            Contract.Requires(messageHandler != null);
 
             if (SubscribedTypes.Contains(messageHandler)) { return; }
 
@@ -71,6 +65,8 @@ namespace Penguin.Messaging.Core
         /// <param name="method">The method to subscribe</param>
         public static void Subscribe(MethodInfo method)
         {
+            Contract.Requires(method != null);
+
             ParameterInfo[] parameters = method.GetParameters();
 
             if (parameters.Length > 0)
@@ -95,6 +91,7 @@ namespace Penguin.Messaging.Core
         /// <param name="toSubscribe">The list of Types to search</param>
         public static void SubscribeAll(IEnumerable<Type> toSubscribe)
         {
+            Contract.Requires(toSubscribe != null);
             foreach (Type t in toSubscribe)
             {
                 if (t.IsAbstract)
@@ -102,14 +99,16 @@ namespace Penguin.Messaging.Core
                     continue;
                 }
 
-                MessageBus.Subscribe(t);
+                Subscribe(t);
             }
         }
+
 
         /// <summary>
         /// Searches All currently loaded assemblies for types with the IMessageHandler interface, and
         /// subscribes all methods beneath them
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static void SubscribeAll()
         {
             foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
@@ -135,7 +134,8 @@ namespace Penguin.Messaging.Core
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex.Message);
+                    StaticLogger.Log(ex.Message, StaticLogger.LoggingLevel.Call);
+                    StaticLogger.Log(ex.StackTrace, StaticLogger.LoggingLevel.Call);
                 }
             }
         }

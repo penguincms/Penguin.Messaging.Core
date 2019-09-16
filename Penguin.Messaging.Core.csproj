@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -7,7 +7,7 @@
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Messaging.Core</PackageProjectUrl>
 	<PackageIconUrl>http://www.penguinms.com/client/images/pg.png</PackageIconUrl>
-    <Version>2.0.9</Version>
+    <Version>3.0.0</Version>
 	<IncludeSymbols>true</IncludeSymbols>    
 <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
@@ -26,6 +26,11 @@
     </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Penguin.Debugging" Version="2.0.0" />
     <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.0.6" />
   </ItemGroup>
 
