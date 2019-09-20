@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Penguin.Messaging.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Penguin.Messaging.Core.MessageBus">
+            <summary>
+            The core message bus class for pub/sub access
+            </summary>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.#ctor(System.IServiceProvider,System.Boolean)">
+            <summary>
+            Creates a new instance of the message bus using the specified service provider. Pass in null to use internal resolver
+            </summary>
+            <param name="serviceProvider">The service provider to use for resolving subscription targets</param>
+            <param name="attemptSubscribe">If true the message bus will attempt to find all relevant subscriptions and register them</param>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.Subscribe(System.Type)">
+            <summary>
+            Searches the specified type for any methods that have a parameter accepting a Message type, and sets them as subscription targets
+            </summary>
+            <param name="messageHandler">The type to check for methods</param>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.Subscribe(System.Reflection.MethodInfo)">
+            <summary>
+            Adds a new subscription using the MethodInfo of the reciever
+            </summary>
+            <param name="method">The method to subscribe</param>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.Subscribe``1(System.Action{``0})">
+            <summary>
+            Adds a new subscription using an Action as the target
+            </summary>
+            <typeparam name="T">The message type to accept</typeparam>
+            <param name="action">The action to process</param>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.SubscribeAll(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Searches an IEnumerable of Types and subscribes all methods containing parameters matching the Message type
+            </summary>
+            <param name="toSubscribe">The list of Types to search</param>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.SubscribeAll">
+            <summary>
+            Searches All currently loaded assemblies for types with the IMessageHandler interface, and
+            subscribes all methods beneath them
+            </summary>
+        </member>
+        <member name="M:Penguin.Messaging.Core.MessageBus.Send(System.Object[])">
+            <summary>
+            Sends a message that will be recieved by any subscriptions that can handle the parameters in the order sent in
+            </summary>
+            <param name="objects">The parameters to send to the subscriptions</param>
+        </member>
+    </members>
+</doc>
