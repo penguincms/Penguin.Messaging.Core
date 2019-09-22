@@ -3,13 +3,13 @@
   <PropertyGroup>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Messaging.Core</PackageProjectUrl>
 	<PackageIconUrl>http://www.penguinms.com/client/images/pg.png</PackageIconUrl>
-    <Version>3.1.0</Version>
+    <Version>3.1.1</Version>
 	<Description>A full featured Penguin based Message Bus. Supports Custom service provider, static/instance recievers, Func/Method subscriptions. Allows for inheritence of message types so that derived types can trigger parent subscriptions. Super easy to use. Penguin approved.</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Penguin.Debugging" Version="2.0.1" />
-    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.0" />
+    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.2" />
   </ItemGroup>
 
 </Project>

@@ -51,7 +51,8 @@ namespace Penguin.Messaging.Core
             {
                 ParameterInfo[] parameters = method.GetParameters();
 
-                if (parameters.Length > 0 && parameters.Any(p => typeof(Message).IsAssignableFrom(p.ParameterType)))
+                if (parameters.Any(
+                        p => typeof(IMessage).IsAssignableFrom(p.ParameterType)))
                 {
                     Subscriptions.Add(new MethodMessageSubscription(method));
                 }
