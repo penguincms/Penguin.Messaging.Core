@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 
 namespace Penguin.Messaging.Core.Subscriptions
 {
@@ -37,7 +38,30 @@ namespace Penguin.Messaging.Core.Subscriptions
                 }
                 else
                 {
-                    caller = provider?.GetService(this.Action.ReflectedType) ?? Activator.CreateInstance(this.Action.ReflectedType);
+                    caller = provider?.GetService(this.Action.ReflectedType);
+
+                    if (caller is null)
+                    {
+                        if (!this.Action.ReflectedType.GetConstructors().Any(c => c.GetParameters().Length == 0))
+                        {
+                            StringBuilder sb = new StringBuilder();
+
+                            if (provider is null)
+                            {
+                                sb.Append("There is no registered service provider and ");
+                            }
+                            else
+                            {
+                                sb.Append("The provided service provider returns a null instance for the requested type and ");
+                            }
+
+                            sb.Append($"no constructor was found that doesn't require parameters for type {this.Action.ReflectedType}");
+                        }
+                        else
+                        {
+                            caller = Activator.CreateInstance(this.Action.ReflectedType);
+                        }
+                    }
                 }
             } // We probably dont want to bother figuring out how to
               //Resolve a generic parameter on a static class
