@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Penguin.Messaging.Core.Local</name>
+        <name>Penguin.Messaging.Core</name>
     </assembly>
     <members>
         <member name="T:Penguin.Messaging.Core.MessageBus">
