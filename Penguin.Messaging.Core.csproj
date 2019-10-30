@@ -5,9 +5,11 @@
     <Version>3.1.1</Version>
     <Description>A full featured Penguin based Message Bus. Supports Custom service provider, static/instance recievers, Func/Method subscriptions. Allows for inheritence of message types so that derived types can trigger parent subscriptions. Super easy to use. Penguin approved.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Penguin.Messaging.Core</AssemblyName>
+    <RootNamespace>Penguin.Messaging.Core</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9M1HHH" />
-    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9M1HHH" />
+    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9M2XAX" />
+    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9M2XAX" />
   </ItemGroup>
 </Project>
