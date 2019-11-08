@@ -9,7 +9,7 @@
     <RootNamespace>Penguin.Messaging.Core</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9M3AAF" />
-    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9M3AAF" />
+    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9MJL4F" />
+    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9MJL4F" />
   </ItemGroup>
 </Project>
