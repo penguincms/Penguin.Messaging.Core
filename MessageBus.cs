@@ -4,7 +4,6 @@ using Penguin.Messaging.Abstractions.Messages;
 using Penguin.Messaging.Core.Subscriptions;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
@@ -103,7 +102,6 @@ namespace Penguin.Messaging.Core
                 Subscribe(t);
             }
         }
-
 
         /// <summary>
         /// Searches All currently loaded assemblies for types with the IMessageHandler interface, and
