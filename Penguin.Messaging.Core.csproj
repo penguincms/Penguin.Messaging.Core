@@ -10,7 +10,7 @@
     <DocumentationFile>Penguin.Messaging.Core.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9QUIQ4" />
-    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9QUIQ4" />
+    <PackageReference Include="Penguin.Debugging" Version="2.0.2-T9RVMZA" />
+    <PackageReference Include="Penguin.Messaging.Abstractions" Version="2.1.3-T9RVMZA" />
   </ItemGroup>
 </Project>
