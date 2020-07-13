@@ -24,7 +24,7 @@
         </member>
         <member name="M:Penguin.Messaging.Core.MessageBus.Subscribe(System.Reflection.MethodInfo)">
             <summary>
-            Adds a new subscription using the MethodInfo of the reciever
+            Adds a new subscription using the MethodInfo of the receiver
             </summary>
             <param name="method">The method to subscribe</param>
         </member>

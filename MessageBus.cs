@@ -42,7 +42,10 @@ namespace Penguin.Messaging.Core
         /// <param name="messageHandler">The type to check for methods</param>
         public static void Subscribe(Type messageHandler)
         {
-            Contract.Requires(messageHandler != null);
+            if (messageHandler is null)
+            {
+                throw new ArgumentNullException(nameof(messageHandler));
+            }
 
             if (SubscribedTypes.Contains(messageHandler)) { return; }
 
@@ -60,12 +63,15 @@ namespace Penguin.Messaging.Core
         }
 
         /// <summary>
-        /// Adds a new subscription using the MethodInfo of the reciever
+        /// Adds a new subscription using the MethodInfo of the receiver
         /// </summary>
         /// <param name="method">The method to subscribe</param>
         public static void Subscribe(MethodInfo method)
         {
-            Contract.Requires(method != null);
+            if (method is null)
+            {
+                throw new ArgumentNullException(nameof(method));
+            }
 
             ParameterInfo[] parameters = method.GetParameters();
 
@@ -91,7 +97,11 @@ namespace Penguin.Messaging.Core
         /// <param name="toSubscribe">The list of Types to search</param>
         public static void SubscribeAll(IEnumerable<Type> toSubscribe)
         {
-            Contract.Requires(toSubscribe != null);
+            if (toSubscribe is null)
+            {
+                throw new ArgumentNullException(nameof(toSubscribe));
+            }
+
             foreach (Type t in toSubscribe)
             {
                 if (t.IsAbstract)
@@ -140,7 +150,7 @@ namespace Penguin.Messaging.Core
         }
 
         /// <summary>
-        /// Sends a message that will be recieved by any subscriptions that can handle the parameters in the order sent in
+        /// Sends a message that will be received by any subscriptions that can handle the parameters in the order sent in
         /// </summary>
         /// <param name="objects">The parameters to send to the subscriptions</param>
         public void Send(params object[] objects)
