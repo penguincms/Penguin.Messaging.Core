@@ -49,7 +49,7 @@
         </member>
         <member name="M:Penguin.Messaging.Core.MessageBus.Send(System.Object[])">
             <summary>
-            Sends a message that will be recieved by any subscriptions that can handle the parameters in the order sent in
+            Sends a message that will be received by any subscriptions that can handle the parameters in the order sent in
             </summary>
             <param name="objects">The parameters to send to the subscriptions</param>
         </member>
