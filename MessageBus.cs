@@ -154,6 +154,11 @@ namespace Penguin.Messaging.Core
         /// <param name="objects">The parameters to send to the subscriptions</param>
         public void Send(params object[] objects)
         {
+            if (objects is null)
+            {
+                throw new ArgumentNullException(nameof(objects));
+            }
+
             for (int i = 0; i < Subscriptions.Count; i++)
             {
                 IMessageSubscription subscription = Subscriptions[i];
