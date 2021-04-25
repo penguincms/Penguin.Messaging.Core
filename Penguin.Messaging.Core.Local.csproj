@@ -2,7 +2,7 @@
   <Import Project="Penguin.Projects.Shared\Penguin.Projects.Shared.csproj" />
   <PropertyGroup>
     <PackageProjectUrl>https://github.com/penguincms/Penguin.Messaging.Core</PackageProjectUrl>
-    <Version>5.0.1</Version>
+    <Version>5.0.5</Version>
     <Description>A full featured Penguin based Message Bus. Supports Custom service provider, static/instance recievers, Func/Method subscriptions. Allows for inheritence of message types so that derived types can trigger parent subscriptions. Super easy to use. Penguin approved.</Description>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Penguin.Messaging.Core</AssemblyName>
