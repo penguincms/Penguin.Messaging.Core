@@ -46,7 +46,8 @@ namespace Penguin.Messaging.Core
                 throw new ArgumentNullException(nameof(messageHandler));
             }
 
-            if (SubscribedTypes.Contains(messageHandler)) { return; }
+            if (SubscribedTypes.Contains(messageHandler))
+            { return; }
 
             foreach (MethodInfo method in messageHandler.GetMethods())
             {
@@ -116,7 +117,6 @@ namespace Penguin.Messaging.Core
         /// Searches All currently loaded assemblies for types with the IMessageHandler interface, and
         /// subscribes all methods beneath them
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification = "<Pending>")]
         public static void SubscribeAll()
         {
             foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
