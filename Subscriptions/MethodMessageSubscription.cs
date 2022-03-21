@@ -73,10 +73,7 @@ namespace Penguin.Messaging.Core.Subscriptions
             this.Action.Invoke(caller, objects);
         }
 
-        public override string ToString()
-        {
-            return $"{this.Action.Name} {string.Join(",", this.Action.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"))}";
-        }
+        public override string ToString() => $"{this.Action.Name} {string.Join(",", this.Action.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"))}";
 
         #endregion Methods
     }

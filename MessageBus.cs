@@ -86,10 +86,7 @@ namespace Penguin.Messaging.Core
         /// </summary>
         /// <typeparam name="T">The message type to accept</typeparam>
         /// <param name="action">The action to process</param>
-        public static void Subscribe<T>(Action<T> action) where T : Message
-        {
-            Subscriptions.Add(new ActionMethodSubscription<T>(action));
-        }
+        public static void Subscribe<T>(Action<T> action) where T : Message => Subscriptions.Add(new ActionMethodSubscription<T>(action));
 
         /// <summary>
         /// Searches an IEnumerable of Types and subscribes all methods containing parameters matching the Message type

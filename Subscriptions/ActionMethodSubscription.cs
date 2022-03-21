@@ -17,10 +17,7 @@ namespace Penguin.Messaging.Core.Subscriptions
 
         #region Methods
 
-        public override void Invoke(object[] objects, IServiceProvider service)
-        {
-            this.Action.Invoke((T)objects[0]);
-        }
+        public override void Invoke(object[] objects, IServiceProvider service) => this.Action.Invoke((T)objects[0]);
 
         #endregion Methods
 
