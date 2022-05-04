@@ -59,7 +59,7 @@ namespace Penguin.Messaging.Core
                     Subscriptions.Add(new MethodMessageSubscription(method));
                 }
             }
-            SubscribedTypes.Add(messageHandler);
+            _ = SubscribedTypes.Add(messageHandler);
         }
 
         /// <summary>
@@ -86,7 +86,10 @@ namespace Penguin.Messaging.Core
         /// </summary>
         /// <typeparam name="T">The message type to accept</typeparam>
         /// <param name="action">The action to process</param>
-        public static void Subscribe<T>(Action<T> action) where T : Message => Subscriptions.Add(new ActionMethodSubscription<T>(action));
+        public static void Subscribe<T>(Action<T> action) where T : Message
+        {
+            Subscriptions.Add(new ActionMethodSubscription<T>(action));
+        }
 
         /// <summary>
         /// Searches an IEnumerable of Types and subscribes all methods containing parameters matching the Message type
@@ -124,7 +127,7 @@ namespace Penguin.Messaging.Core
                 }
                 else
                 {
-                    SubscribedAssemblies.Add(a);
+                    _ = SubscribedAssemblies.Add(a);
                 }
 
                 try

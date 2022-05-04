@@ -48,14 +48,14 @@ namespace Penguin.Messaging.Core.Subscriptions
 
                             if (provider is null)
                             {
-                                sb.Append("There is no registered service provider and ");
+                                _ = sb.Append("There is no registered service provider and ");
                             }
                             else
                             {
-                                sb.Append("The provided service provider returns a null instance for the requested type and ");
+                                _ = sb.Append("The provided service provider returns a null instance for the requested type and ");
                             }
 
-                            sb.Append($"no constructor was found that doesn't require parameters for type {this.Action.ReflectedType}");
+                            _ = sb.Append($"no constructor was found that doesn't require parameters for type {this.Action.ReflectedType}");
                         }
                         else
                         {
@@ -70,10 +70,13 @@ namespace Penguin.Messaging.Core.Subscriptions
                 return;
             }
 
-            this.Action.Invoke(caller, objects);
+            _ = this.Action.Invoke(caller, objects);
         }
 
-        public override string ToString() => $"{this.Action.Name} {string.Join(",", this.Action.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"))}";
+        public override string ToString()
+        {
+            return $"{this.Action.Name} {string.Join(",", this.Action.GetParameters().Select(p => $"{p.ParameterType.Name} {p.Name}"))}";
+        }
 
         #endregion Methods
     }
