@@ -4,7 +4,7 @@
     <PackageProjectUrl>https://github.com/PenguinCms/Penguin.Messaging.Core</PackageProjectUrl>
     <Version>5.0.5</Version>
     <Description>A full featured Penguin based Message Bus. Supports Custom service provider, static/instance recievers, Func/Method subscriptions. Allows for inheritence of message types so that derived types can trigger parent subscriptions. Super easy to use. Penguin approved.</Description>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
     <AssemblyName>Penguin.Messaging.Core</AssemblyName>
     <RootNamespace>Penguin.Messaging.Core</RootNamespace>
     <DocumentationFile>Penguin.Messaging.Core.xml</DocumentationFile>
