@@ -21,9 +21,10 @@ namespace Penguin.Messaging.Core
         /// </summary>
         /// <param name="serviceProvider">The service provider to use for resolving subscription targets</param>
         /// <param name="attemptSubscribe">If true the message bus will attempt to find all relevant subscriptions and register them</param>
+        [Obsolete]
         public MessageBus(IServiceProvider serviceProvider, bool attemptSubscribe = false)
         {
-            this.ServiceProvider = serviceProvider;
+            ServiceProvider = serviceProvider;
 
             if (attemptSubscribe)
             {
@@ -117,6 +118,7 @@ namespace Penguin.Messaging.Core
         /// Searches All currently loaded assemblies for types with the IMessageHandler interface, and
         /// subscribes all methods beneath them
         /// </summary>
+        [Obsolete]
         public static void SubscribeAll()
         {
             foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
@@ -164,7 +166,7 @@ namespace Penguin.Messaging.Core
                 IMessageSubscription subscription = Subscriptions[i];
                 if (MessageMatch(subscription, objects))
                 {
-                    subscription.Invoke(objects, this.ServiceProvider);
+                    subscription.Invoke(objects, ServiceProvider);
                 }
             }
         }
@@ -173,7 +175,7 @@ namespace Penguin.Messaging.Core
 
         #region Fields
 
-        private static readonly List<IMessageSubscription> Subscriptions = new List<IMessageSubscription>();
+        private static readonly List<IMessageSubscription> Subscriptions = new();
 
         #endregion Fields
 

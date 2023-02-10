@@ -9,8 +9,8 @@ namespace Penguin.Messaging.Core.Subscriptions
 
         public ActionMethodSubscription(Action<T> a)
         {
-            this.Action = a;
-            this.Parameters = new List<Type>() { typeof(T) };
+            Action = a;
+            Parameters = new List<Type>() { typeof(T) };
         }
 
         #endregion Constructors
@@ -19,7 +19,7 @@ namespace Penguin.Messaging.Core.Subscriptions
 
         public override void Invoke(object[] objects, IServiceProvider service)
         {
-            this.Action.Invoke((T)objects[0]);
+            Action.Invoke((T)objects[0]);
         }
 
         #endregion Methods
