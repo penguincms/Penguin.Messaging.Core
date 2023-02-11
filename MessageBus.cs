@@ -182,7 +182,9 @@ namespace Penguin.Messaging.Core
         #region Properties
 
         private static HashSet<Assembly> SubscribedAssemblies { get; set; } = new HashSet<Assembly>();
+
         private static HashSet<Type> SubscribedTypes { get; set; } = new HashSet<Type>();
+
         private IServiceProvider ServiceProvider { get; set; }
 
         #endregion Properties
