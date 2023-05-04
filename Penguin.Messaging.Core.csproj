@@ -11,7 +11,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Penguin.Messaging.Abstractions" Version="5.7.0" />
-    <PackageReference Include="Penguin.Debugging" Version="5.7.0" />
+    <PackageReference Include="Penguin.Messaging.Abstractions" Version="5.15.0" />
+    <PackageReference Include="Penguin.Debugging" Version="5.15.0" />
   </ItemGroup>
 </Project>
